@@ -1,0 +1,14 @@
+
+.vs/Blockchain_wpf_client/v16/.suo
+
+bin/Debug/
+
+obj/Debug/
+
+.vs/Blockchain_wpf_client/v16/Server/sqlite3/storage.ide-wal
+
+.vs/Blockchain_wpf_client/v16/Server/sqlite3/storage.ide-shm
+
+.vs/Blockchain_wpf_client/v16/Server/sqlite3/storage.ide
+
+.vs/Blockchain_wpf_client/v16/Server/sqlite3/db.lock
