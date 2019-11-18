@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blockchain_wpf_client.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +12,22 @@ namespace Blockchain_wpf_client
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public static Login loginForm;
+        public static Register registerForm;
+        public static MainForm mainForm;
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            loginForm = new Login();
+            registerForm = new Register();
+            mainForm = new MainForm();
+
+            Application.Run(loginForm);
         }
     }
 }
