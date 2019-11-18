@@ -10,28 +10,27 @@ using System.Windows.Forms;
 
 namespace Blockchain_wpf_client.Views
 {
-    public partial class Login : Form
+    public partial class Register : Form
     {
-        public Login()
+        public Register()
         {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void registerLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void userNameLabel_Click(object sender, EventArgs e)
         {
-            Program.registerForm.Show();
-            this.Hide();
+
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void loginLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Program.mainForm.Show();
             this.Hide();
+            Program.loginForm.Show();
         }
     }
 }
