@@ -32,5 +32,10 @@ namespace Blockchain_wpf_client.Views
             this.Hide();
             Program.loginForm.Show();
         }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

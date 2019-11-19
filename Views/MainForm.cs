@@ -37,5 +37,26 @@ namespace Blockchain_wpf_client.Views
         {
 
         }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TransactionPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.loginForm.Show();
+        }
     }
 }
