@@ -58,5 +58,10 @@ namespace Blockchain_wpf_client.Views
             this.Hide();
             Program.loginForm.Show();
         }
+
+        private void currentEmailLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
