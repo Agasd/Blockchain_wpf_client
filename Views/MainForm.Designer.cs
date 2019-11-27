@@ -34,6 +34,9 @@
             this.editProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.walletPanel = new System.Windows.Forms.Panel();
+            this.buttonWalletLabel = new System.Windows.Forms.Button();
+            this.textBoxLabel = new System.Windows.Forms.TextBox();
+            this.walletNameLabel = new System.Windows.Forms.ComboBox();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
@@ -41,14 +44,11 @@
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.newPasswordTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.currentEmailTextBox = new System.Windows.Forms.TextBox();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
             this.newPasswordLabel = new System.Windows.Forms.Label();
             this.newEmailLabel = new System.Windows.Forms.Label();
             this.currentEmailLabel = new System.Windows.Forms.Label();
-            this.buttonWalletLabel = new System.Windows.Forms.Button();
-            this.textBoxLabel = new System.Windows.Forms.TextBox();
-            this.walletNameLabel = new System.Windows.Forms.ComboBox();
+            this.currentEmailTextBox = new System.Windows.Forms.TextBox();
             this.transactionPanel = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.usernameCheckBox = new System.Windows.Forms.CheckBox();
@@ -90,7 +90,7 @@
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
             this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
@@ -99,6 +99,7 @@
             this.editProfileToolStripMenuItem.Name = "editProfileToolStripMenuItem";
             this.editProfileToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.editProfileToolStripMenuItem.Text = "Edit Profile";
+            this.editProfileToolStripMenuItem.Click += new System.EventHandler(this.EditProfileToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -118,6 +119,35 @@
             this.walletPanel.TabIndex = 1;
             this.walletPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // buttonWalletLabel
+            // 
+            this.buttonWalletLabel.Location = new System.Drawing.Point(292, 283);
+            this.buttonWalletLabel.Name = "buttonWalletLabel";
+            this.buttonWalletLabel.Size = new System.Drawing.Size(109, 38);
+            this.buttonWalletLabel.TabIndex = 3;
+            this.buttonWalletLabel.Text = "Set Main Wallet";
+            this.buttonWalletLabel.UseVisualStyleBackColor = true;
+            // 
+            // textBoxLabel
+            // 
+            this.textBoxLabel.Location = new System.Drawing.Point(225, 54);
+            this.textBoxLabel.Name = "textBoxLabel";
+            this.textBoxLabel.Size = new System.Drawing.Size(176, 20);
+            this.textBoxLabel.TabIndex = 2;
+            // 
+            // walletNameLabel
+            // 
+            this.walletNameLabel.DropDownHeight = 110;
+            this.walletNameLabel.FormattingEnabled = true;
+            this.walletNameLabel.IntegralHeight = false;
+            this.walletNameLabel.ItemHeight = 13;
+            this.walletNameLabel.Location = new System.Drawing.Point(34, 54);
+            this.walletNameLabel.Name = "walletNameLabel";
+            this.walletNameLabel.Size = new System.Drawing.Size(111, 21);
+            this.walletNameLabel.TabIndex = 1;
+            this.walletNameLabel.Text = "Wallet 1";
+            this.walletNameLabel.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            // 
             // profilePanel
             // 
             this.profilePanel.Controls.Add(this.buttonCancel);
@@ -131,9 +161,9 @@
             this.profilePanel.Controls.Add(this.newEmailLabel);
             this.profilePanel.Controls.Add(this.currentEmailLabel);
             this.profilePanel.Controls.Add(this.currentEmailTextBox);
-            this.profilePanel.Location = new System.Drawing.Point(0, 0);
+            this.profilePanel.Location = new System.Drawing.Point(0, 27);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(464, 373);
+            this.profilePanel.Size = new System.Drawing.Size(464, 376);
             this.profilePanel.TabIndex = 4;
             // 
             // buttonCancel
@@ -184,13 +214,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 5;
             // 
-            // currentEmailTextBox
-            // 
-            this.currentEmailTextBox.Location = new System.Drawing.Point(131, 36);
-            this.currentEmailTextBox.Name = "currentEmailTextBox";
-            this.currentEmailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.currentEmailTextBox.TabIndex = 4;
-            // 
             // confirmPasswordLabel
             // 
             this.confirmPasswordLabel.AutoSize = true;
@@ -228,34 +251,12 @@
             this.currentEmailLabel.Text = "Current Email:";
             this.currentEmailLabel.Click += new System.EventHandler(this.currentEmailLabel_Click);
             // 
-            // buttonWalletLabel
+            // currentEmailTextBox
             // 
-            this.buttonWalletLabel.Location = new System.Drawing.Point(292, 283);
-            this.buttonWalletLabel.Name = "buttonWalletLabel";
-            this.buttonWalletLabel.Size = new System.Drawing.Size(109, 38);
-            this.buttonWalletLabel.TabIndex = 3;
-            this.buttonWalletLabel.Text = "Set Main Wallet";
-            this.buttonWalletLabel.UseVisualStyleBackColor = true;
-            // 
-            // textBoxLabel
-            // 
-            this.textBoxLabel.Location = new System.Drawing.Point(225, 54);
-            this.textBoxLabel.Name = "textBoxLabel";
-            this.textBoxLabel.Size = new System.Drawing.Size(176, 20);
-            this.textBoxLabel.TabIndex = 2;
-            // 
-            // walletNameLabel
-            // 
-            this.walletNameLabel.DropDownHeight = 110;
-            this.walletNameLabel.FormattingEnabled = true;
-            this.walletNameLabel.IntegralHeight = false;
-            this.walletNameLabel.ItemHeight = 13;
-            this.walletNameLabel.Location = new System.Drawing.Point(34, 54);
-            this.walletNameLabel.Name = "walletNameLabel";
-            this.walletNameLabel.Size = new System.Drawing.Size(111, 21);
-            this.walletNameLabel.TabIndex = 1;
-            this.walletNameLabel.Text = "Wallet 1";
-            this.walletNameLabel.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.currentEmailTextBox.Location = new System.Drawing.Point(131, 36);
+            this.currentEmailTextBox.Name = "currentEmailTextBox";
+            this.currentEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.currentEmailTextBox.TabIndex = 4;
             // 
             // transactionPanel
             // 
@@ -376,9 +377,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 404);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.transactionPanel);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.walletPanel);
-            this.Controls.Add(this.transactionPanel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";

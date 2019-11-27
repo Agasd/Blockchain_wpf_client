@@ -63,5 +63,11 @@ namespace Blockchain_wpf_client.Views
         {
 
         }
+
+        private void EditProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            profilePanel.BringToFront();
+
+        }
     }
 }
