@@ -15,7 +15,7 @@ namespace Blockchain_wpf_client
         /// 
         public static Login loginForm;
         public static Register registerForm;
-        public static MainForm mainForm;
+        public static main mainForm;
 
         [STAThread]
         static void Main()
@@ -25,7 +25,7 @@ namespace Blockchain_wpf_client
 
             loginForm = new Login();
             registerForm = new Register();
-            mainForm = new MainForm();
+            mainForm = new main();
 
             Application.Run(loginForm);
         }

@@ -27,15 +27,26 @@ namespace Blockchain_wpf_client.Views
 
         }
 
-        private void loginLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        /*private void loginLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             Program.loginForm.Show();
-        }
+        }*/
 
         private void Register_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Program.loginForm.Show();
+            this.Hide();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

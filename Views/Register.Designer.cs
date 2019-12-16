@@ -40,8 +40,8 @@
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.userNameCheckBox = new System.Windows.Forms.CheckBox();
             this.passwordConfirmCheckBox = new System.Windows.Forms.CheckBox();
-            this.loginLabel = new System.Windows.Forms.LinkLabel();
             this.registerButton = new System.Windows.Forms.Button();
+            this.login_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -149,33 +149,33 @@
             this.passwordConfirmCheckBox.TabIndex = 11;
             this.passwordConfirmCheckBox.UseVisualStyleBackColor = true;
             // 
-            // loginLabel
-            // 
-            this.loginLabel.AutoSize = true;
-            this.loginLabel.Location = new System.Drawing.Point(287, 241);
-            this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(33, 13);
-            this.loginLabel.TabIndex = 12;
-            this.loginLabel.TabStop = true;
-            this.loginLabel.Text = "Login";
-            this.loginLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.loginLabel_LinkClicked);
-            // 
             // registerButton
             // 
             this.registerButton.Location = new System.Drawing.Point(35, 231);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 23);
             this.registerButton.TabIndex = 13;
-            this.registerButton.Text = "Regiser";
+            this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.RegisterButton_Click);
+            // 
+            // login_button
+            // 
+            this.login_button.Location = new System.Drawing.Point(275, 231);
+            this.login_button.Name = "login_button";
+            this.login_button.Size = new System.Drawing.Size(75, 23);
+            this.login_button.TabIndex = 14;
+            this.login_button.Text = "Login";
+            this.login_button.UseVisualStyleBackColor = true;
+            this.login_button.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 285);
+            this.Controls.Add(this.login_button);
             this.Controls.Add(this.registerButton);
-            this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.passwordConfirmCheckBox);
             this.Controls.Add(this.userNameCheckBox);
             this.Controls.Add(this.confirmPasswordTextBox);
@@ -210,7 +210,7 @@
         private System.Windows.Forms.TextBox confirmPasswordTextBox;
         private System.Windows.Forms.CheckBox userNameCheckBox;
         private System.Windows.Forms.CheckBox passwordConfirmCheckBox;
-        private System.Windows.Forms.LinkLabel loginLabel;
         private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Button login_button;
     }
 }

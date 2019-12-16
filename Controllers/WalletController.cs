@@ -7,7 +7,7 @@ namespace Blockchain_wpf_client.Controllers
 {
     public static class WalletController
     {
-        public static Wallet generateWallet() {
+        /*public static Wallet generateWallet() {
 
 
             HttpClient http = new HttpClient();
@@ -35,6 +35,22 @@ namespace Blockchain_wpf_client.Controllers
             string responseBody = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseBody);
             return responseBody;
+        }*/
+
+        public static Wallet getListWallet()
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpContent httpContent = new StringContent("");
+
+            string path = "/Wallets";
+            string url = Config.basicUrl + path;
+
+            HttpResponseMessage httpResponse = httpClient.PostAsync(new Uri(url), httpContent).Result;
+            string responseBody = httpResponse.Content.ReadAsStringAsync().Result;
+            Wallet listedWallet = JsonConvert.DeserializeObject<Wallet>(responseBody);
+            Console.WriteLine(responseBody);
+            return listedWallet;
+
         }
     }
 }

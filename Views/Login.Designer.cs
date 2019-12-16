@@ -34,6 +34,7 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.registerLabel = new System.Windows.Forms.LinkLabel();
+            this.register_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -80,20 +81,31 @@
             // 
             // registerLabel
             // 
-            this.registerLabel.AutoSize = true;
+            /*this.registerLabel.AutoSize = true;
             this.registerLabel.Location = new System.Drawing.Point(144, 163);
             this.registerLabel.Name = "registerLabel";
             this.registerLabel.Size = new System.Drawing.Size(41, 13);
             this.registerLabel.TabIndex = 5;
             this.registerLabel.TabStop = true;
             this.registerLabel.Text = "register";
-            this.registerLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registerLabel_LinkClicked);
+            this.registerLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registerButton_Click);
+            */// 
+            // register_button
+            // 
+            this.register_button.Location = new System.Drawing.Point(110, 124);
+            this.register_button.Name = "register_button";
+            this.register_button.Size = new System.Drawing.Size(75, 23);
+            this.register_button.TabIndex = 6;
+            this.register_button.Text = "Register";
+            this.register_button.UseVisualStyleBackColor = true;
+            this.register_button.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(197, 186);
+            this.Controls.Add(this.register_button);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.LinkLabel registerLabel;
+        private System.Windows.Forms.Button register_button;
     }
 }
