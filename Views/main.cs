@@ -104,6 +104,12 @@ namespace Blockchain_wpf_client.Views
             var contents = await response.Content.ReadAsStringAsync();
         }
 
+        /*public static IEnumerable<User> GetResponse()
+        {
+            IEnumerable<User> users = new List<User>();
+            using (StreamReader r = new StreamReader("Data.json"));
+        }*/
+
         private async void WalletButton_ClickAsync(object sender, EventArgs e)
         {
 
