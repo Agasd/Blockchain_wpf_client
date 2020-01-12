@@ -59,6 +59,7 @@
     <Compile Include="Controllers\WalletController.cs" />
     <Compile Include="Models\TokenDTO.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserLoginDTO.cs" />
     <Compile Include="Models\Wallet.cs" />
     <Compile Include="Program.cs" />

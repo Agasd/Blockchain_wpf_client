@@ -1,4 +1,5 @@
 ﻿using Blockchain_wpf_client.Models;
+using BlockchainOnline.Models;
 using Nancy.Json;
 using Newtonsoft.Json;
 using System;
@@ -99,37 +100,70 @@ namespace Blockchain_wpf_client.Views
 
         private async void populateButton_Click(object sender, EventArgs e)
         {
-            HttpClient httpClient = new HttpClient();
-            HttpContent httpContent = new StringContent("");
 
-            string path = "/Users";
+            var json = new JavaScriptSerializer().Serialize(new { username = "admin", password = "pass" });
 
-            var response = await httpClient.PostAsync(Config.basicUrl + path, new StringContent(JsonConvert.SerializeObject(new { Username = "", Password = "" }), Encoding.UTF8, "application/json"));
-            var contents = await response.Content.ReadAsStringAsync();
+            HttpClient http = new HttpClient();
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            string path = "/auth/login";
+            string url = Config.basicUrl + path;
+
+            HttpResponseMessage response = http.PostAsync(new Uri(url), content).Result;
+            string responseBody = response.Content.ReadAsStringAsync().Result;
+
+            TokenDTO token = JsonConvert.DeserializeObject<TokenDTO>(responseBody);
+
+            json = new JavaScriptSerializer().Serialize("");
+
+            http = new HttpClient();
+            content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            path = "/Users/";
+            url = Config.basicUrl + path;
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.tokenString);
+
+            response = http.GetAsync(new Uri(url)).Result;
+            responseBody = response.Content.ReadAsStringAsync().Result;
+            DataTable t = new DataTable();
+
+            LinkedList<UserInfo> uinfo = new LinkedList<UserInfo>();
+            profileDataGridView.DataSource = uinfo.Append(JsonConvert.DeserializeObject<UserInfo>(responseBody)).ToList();
+            profileDataGridView.Refresh();
         }
-
-        /*public static IEnumerable<User> GetResponse()
-        {
-            IEnumerable<User> users = new List<User>();
-            using (StreamReader r = new StreamReader("Data.json"));
-        }*/
-
         private async void WalletButton_ClickAsync(object sender, EventArgs e)
         {
 
-            HttpClient httpClient = new HttpClient();
-            HttpContent httpContent = new StringContent("");
+            var json = new JavaScriptSerializer().Serialize(new { username = "admin", password = "pass" });
 
-            string path = "/Wallets";
+            HttpClient http = new HttpClient();
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            /*HttpResponseMessage httpResponse = httpClient.PostAsync(new Uri(url), httpContent).Result;
-            string responseBody = httpResponse.Content.ReadAsStringAsync().Result;
-            Wallet listedWallet = JsonConvert.DeserializeObject<Wallet>(responseBody);
-            Console.WriteLine(responseBody);*/
-            var response = await httpClient.PostAsync(Config.basicUrl + path, new StringContent(JsonConvert.SerializeObject(new { Username = "", Password = "" }), Encoding.UTF8, "application/json"));
-            var contents = await response.Content.ReadAsStringAsync();
-            //walletDataGridView.DataSource = 
+            string path = "/auth/login";
+            string url = Config.basicUrl + path;
 
+            HttpResponseMessage response = http.PostAsync(new Uri(url), content).Result;
+            string responseBody = response.Content.ReadAsStringAsync().Result;
+
+            TokenDTO token = JsonConvert.DeserializeObject<TokenDTO>(responseBody);
+
+            json = new JavaScriptSerializer().Serialize("");
+
+            http = new HttpClient();
+            content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            path = "/Users/";
+            url = Config.basicUrl + path;
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.tokenString);
+
+            response = http.GetAsync(new Uri(url)).Result;
+            responseBody = response.Content.ReadAsStringAsync().Result;
+            DataTable t = new DataTable();
+
+            LinkedList < Wallet> wallets = new LinkedList<Wallet>();
+            UserInfo uinfo = JsonConvert.DeserializeObject<UserInfo>(responseBody);
+            walletDataGridView.DataSource = uinfo.Wallets.ToList();
+            walletDataGridView.Refresh();
         }
 
         private async void TransactionButton_Click(object sender, EventArgs e)
@@ -160,7 +194,7 @@ namespace Blockchain_wpf_client.Views
             responseBody = response.Content.ReadAsStringAsync().Result;
             DataTable t = new DataTable();
             
-            transactionsDataGridView.DataSource = new LinkedList<Transaction>(JsonConvert.DeserializeObject<Transaction[]>(responseBody));
+            transactionsDataGridView.DataSource = new LinkedList<Transaction>(JsonConvert.DeserializeObject<Transaction[]>(responseBody)).ToList();
             transactionsDataGridView.Refresh();
             //tvm.transactions = new LinkedList<Transaction>(JsonConvert.DeserializeObject<Transaction[]>(responseBody));
         }

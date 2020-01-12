@@ -77,7 +77,7 @@
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
             this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
@@ -111,7 +111,7 @@
             this.walletButton.Name = "walletButton";
             this.walletButton.Size = new System.Drawing.Size(83, 23);
             this.walletButton.TabIndex = 2;
-            this.walletButton.Text = "Populate Data";
+            this.walletButton.Text = "Update";
             this.walletButton.UseVisualStyleBackColor = true;
             this.walletButton.Click += new System.EventHandler(this.WalletButton_ClickAsync);
             // 
@@ -151,7 +151,7 @@
             this.transactionButton.Name = "transactionButton";
             this.transactionButton.Size = new System.Drawing.Size(83, 23);
             this.transactionButton.TabIndex = 2;
-            this.transactionButton.Text = "Populate Data";
+            this.transactionButton.Text = "Update";
             this.transactionButton.UseVisualStyleBackColor = true;
             this.transactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
             // 
@@ -190,7 +190,7 @@
             this.populateProfile.Name = "populateProfile";
             this.populateProfile.Size = new System.Drawing.Size(86, 23);
             this.populateProfile.TabIndex = 2;
-            this.populateProfile.Text = "Populate Data";
+            this.populateProfile.Text = "Update";
             this.populateProfile.UseVisualStyleBackColor = true;
             this.populateProfile.Click += new System.EventHandler(this.populateButton_Click);
             // 
@@ -218,10 +218,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 468);
-            this.Controls.Add(this.transactionPanel);
-            this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.walletPanel);
+            this.Controls.Add(this.transactionPanel);
+            this.Controls.Add(this.profilePanel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "main";
             this.Text = "Main";

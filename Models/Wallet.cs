@@ -9,10 +9,10 @@ namespace Blockchain_wpf_client.Models
 {
     public class Wallet
     {
-        [JsonProperty("publicKey")]
+        [JsonProperty("public_key")]
         public string publicKey { get; set; }
 
-        [JsonProperty("privateKey")]
+        [JsonProperty("private_key")]
         public string privateKey { get; set; }
 
     }
