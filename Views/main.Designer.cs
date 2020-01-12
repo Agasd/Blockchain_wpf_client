@@ -77,7 +77,7 @@
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
             this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
@@ -118,9 +118,9 @@
             // walletDataGridView
             // 
             this.walletDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.walletDataGridView.Location = new System.Drawing.Point(21, 151);
+            this.walletDataGridView.Location = new System.Drawing.Point(21, 121);
             this.walletDataGridView.Name = "walletDataGridView";
-            this.walletDataGridView.Size = new System.Drawing.Size(431, 266);
+            this.walletDataGridView.Size = new System.Drawing.Size(431, 296);
             this.walletDataGridView.TabIndex = 1;
             this.walletDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WalletDataGridView_CellContentClick);
             // 
@@ -218,10 +218,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 468);
-            this.Controls.Add(this.walletPanel);
             this.Controls.Add(this.transactionPanel);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.walletPanel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "main";
             this.Text = "Main";

@@ -1,14 +1,18 @@
 ﻿using Blockchain_wpf_client.Models;
+using Nancy.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace Blockchain_wpf_client.Views
@@ -130,13 +134,35 @@ namespace Blockchain_wpf_client.Views
 
         private async void TransactionButton_Click(object sender, EventArgs e)
         {
-            HttpClient httpClient = new HttpClient();
-            HttpContent httpContent = new StringContent("");
+            var json = new JavaScriptSerializer().Serialize(new {username = "admin", password = "pass"});
 
-            string path = "/Transactions";
+            HttpClient http = new HttpClient();
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await httpClient.PostAsync(Config.basicUrl + path, new StringContent(JsonConvert.SerializeObject(new { Username = "", Password = "" }), Encoding.UTF8, "application/json"));
-            var contents = await response.Content.ReadAsStringAsync();
+            string path = "/auth/login";
+            string url = Config.basicUrl + path;
+
+            HttpResponseMessage response = http.PostAsync(new Uri(url), content).Result;
+            string responseBody = response.Content.ReadAsStringAsync().Result;
+
+           TokenDTO token = JsonConvert.DeserializeObject<TokenDTO>(responseBody);
+
+            json = new JavaScriptSerializer().Serialize("");
+
+            http = new HttpClient();
+            content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            path = "/Transactions/getall";
+            url = Config.basicUrl + path;
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.tokenString);
+
+            response = http.GetAsync(new Uri(url)).Result;
+            responseBody = response.Content.ReadAsStringAsync().Result;
+            DataTable t = new DataTable();
+            
+            transactionsDataGridView.DataSource = new LinkedList<Transaction>(JsonConvert.DeserializeObject<Transaction[]>(responseBody));
+            transactionsDataGridView.Refresh();
+            //tvm.transactions = new LinkedList<Transaction>(JsonConvert.DeserializeObject<Transaction[]>(responseBody));
         }
 
         private void TransactionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
